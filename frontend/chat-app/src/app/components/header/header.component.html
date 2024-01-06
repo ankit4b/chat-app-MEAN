@@ -1,0 +1,38 @@
+<div class="header">
+  <div class="left-section">
+    <img src="../../../assets/images/logo.png" id="logo-img" />
+    <h2 id="logo-title">Bindas Talk</h2>
+  </div>
+  <div class="right-section">
+    <div class="image-container">
+      <img [src]="currentUser.pic" (click)="openModal()" />
+    </div>
+
+    <div id="notification-icon">
+      <mat-icon
+        (click)="toggleNotification()"
+        *ngIf="notificationData.length > 0"
+        [matBadge]="notificationData.length"
+        matBadgeColor="warn"
+        >notification_important</mat-icon
+      >
+    </div>
+
+    <div
+      id="notification-popup"
+      *ngIf="showNotificationPopup"
+      (click)="handleNotificationPopupClick($event)"
+    >
+      <div
+        class="notification-item"
+        *ngFor="let notification of notificationData"
+        (click)="handleNotificationClick(notification)"
+      >
+        <b>{{ notification["sender"]["name"] }}</b> :
+        {{ notification["content"] }}
+      </div>
+    </div>
+
+    <button mat-stroked-button color="warn" (click)="logout()">Logout</button>
+  </div>
+</div>

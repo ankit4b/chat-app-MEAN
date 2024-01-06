@@ -1,0 +1,62 @@
+<div class="sidebar-header">
+  <!-- <div class="image-container">
+    <img
+      src="https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
+    />
+  </div> -->
+  <div class="search-container">
+    <!-- <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Name" (input)="onInput($event)" />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field> -->
+
+    <div id="search-box" (click)="handleSearchBoxClick($event)">
+      <button class="btn-search"><mat-icon matSuffix>search</mat-icon></button>
+      <input
+        type="text"
+        (input)="onInput($event)"
+        class="input-search"
+        placeholder="Search user..."
+        id="user-search"
+      />
+      <!-- <input
+        type="text"
+        (input)="onInput($event)"
+        id="user-search"
+        placeholder="Search user..."
+      /> -->
+      <div id="user-list" *ngIf="userData && userData.length > 0">
+        <ng-container *ngFor="let user of userData">
+          <div class="user-item" (click)="startConversation(user._id)">
+            <img [src]="user.pic" style="width: 20px; height: 20px" />
+            <p>{{ user.name }}</p>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- <div
+      class="userList"
+      style="display: flex; flex-direction: column; position: absolute"
+    >
+      <ng-container *ngFor="let user of userData">
+        <div
+          style="
+            display: flex;
+            gap: 1rem;
+            border-bottom: 1px solid #eee;
+            padding: 0.5rem;
+            min-width: 240px;
+            background-color: #fff;
+            cursor: pointer;
+          "
+          (click)="startConversation(user._id)"
+        >
+          <img [src]="user.pic" style="width: 20px; height: 20px" />
+          <p>{{ user.name }}</p>
+        </div>
+      </ng-container>
+    </div> -->
+  </div>
+</div>

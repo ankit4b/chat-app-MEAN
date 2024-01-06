@@ -1,0 +1,59 @@
+<div class="login-container">
+  <form (ngSubmit)="onSubmit()">
+    <mat-form-field class="input-container">
+      <mat-label>Enter your Username</mat-label>
+      <input
+        matInput
+        placeholder="username"
+        [formControl]="username"
+        required
+      />
+      <mat-error *ngIf="username.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="input-container">
+      <mat-label>Enter your email</mat-label>
+      <input
+        matInput
+        placeholder="pat@example.com"
+        [formControl]="email"
+        required
+      />
+      <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="input-container">
+      <mat-label>Enter your password</mat-label>
+      <input
+        type="password"
+        matInput
+        placeholder="password"
+        [formControl]="password"
+        required
+      />
+      <mat-error *ngIf="password.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+    <!-- 
+    <mat-form-field class="input-container">
+      <mat-label>Image:</mat-label> -->
+    <input type="file" (change)="onFileSelected($event)" />
+    <!-- <input
+      type="file"
+      (change)="onFileSelected($event)"
+      [formControl]="image"
+    /> -->
+    <!-- <mat-error *ngIf="image.hasError('required') && image.touched">
+        Please select an image.
+      </mat-error>
+    </mat-form-field> -->
+
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      class="input-container"
+    >
+      Sign-up
+    </button>
+  </form>
+</div>

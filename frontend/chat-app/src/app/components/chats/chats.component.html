@@ -1,0 +1,74 @@
+<!-- <div class="chats-container"> -->
+<section class="msger" *ngIf="selectedUser">
+  <header class="msger-header">
+    <div class="msger-header-title" (click)="openModal()">
+      <!-- <i class="fas fa-comment-alt"></i>  -->
+
+      <ng-container *ngIf="isGroupChat; else elseBlock">
+        <img
+          class="image-container"
+          src="https://cdn-icons-png.flaticon.com/512/166/166258.png"
+        />
+        {{ selectedUser.chatName }}
+      </ng-container>
+      <ng-template #elseBlock>
+        <img class="image-container" [src]="selectedUser?.pic" />
+        {{ selectedUser?.name }}
+      </ng-template>
+    </div>
+    <div class="msger-header-options">
+      <!-- <span><i class="fas fa-cog"></i></span> -->
+    </div>
+  </header>
+
+  <div class="msger-chat" #chatHistoryContainer>
+    <ng-container *ngFor="let chat of chatHistory">
+      <div
+        class="msg left-msg"
+        *ngIf="getUserStatus(chat.sender) === 'receiver'; else receiverBlock"
+      >
+        <div
+          class="msg-img"
+          [style.background-image]="'url(' + chat.sender.pic + ')'"
+        ></div>
+
+        <div class="msg-bubble">
+          <div class="msg-info">
+            <div class="msg-info-name">{{ chat.sender.name }}</div>
+            <!-- <div class="msg-info-time">12:45</div> -->
+          </div>
+
+          <div class="msg-text">
+            {{ chat.content }}
+          </div>
+        </div>
+      </div>
+
+      <ng-template #receiverBlock>
+        <div class="msg right-msg">
+          <div
+            class="msg-img"
+            [style.background-image]="'url(' + chat.sender.pic + ')'"
+          ></div>
+
+          <div class="msg-bubble">
+            <div class="msg-info">
+              <div class="msg-info-name">{{ chat.sender.name }}</div>
+              <!-- <div class="msg-info-time">12:46</div> -->
+            </div>
+
+            <div class="msg-text">{{ chat.content }}</div>
+          </div>
+        </div>
+      </ng-template>
+    </ng-container>
+    <div class="loader" *ngIf="isTyping">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <app-chat-input></app-chat-input>
+</section>
+<!-- </div> -->

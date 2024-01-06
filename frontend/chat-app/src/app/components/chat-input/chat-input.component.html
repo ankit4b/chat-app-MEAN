@@ -1,0 +1,12 @@
+<form class="msger-inputarea">
+  <input
+    type="text"
+    (keypress)="typing()"
+    [formControl]="message"
+    class="msger-input"
+    placeholder="Enter your message..."
+  />
+  <button type="submit" class="msger-send-btn" (click)="sendMessage()">
+    Send
+  </button>
+</form>

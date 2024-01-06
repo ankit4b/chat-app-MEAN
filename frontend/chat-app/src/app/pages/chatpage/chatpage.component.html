@@ -1,0 +1,13 @@
+<div class="main-container">
+  <div class="header">
+    <app-header></app-header>
+  </div>
+  <div class="chatpage-container">
+    <div class="sidebar">
+      <app-users-sidebar></app-users-sidebar>
+    </div>
+    <div class="chats">
+      <app-chats *ngIf="selectedUser"></app-chats>
+    </div>
+  </div>
+</div>

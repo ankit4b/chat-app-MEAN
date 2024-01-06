@@ -1,0 +1,10 @@
+<div class="user-sidebar-container">
+  <app-users-sidebar-header></app-users-sidebar-header>
+  <ng-container *ngFor="let userChat of chatList">
+    <app-usermsg-card
+      [userChat]="userChat"
+      [isSelected]="userChat === selectedUserChat"
+      (click)="selectUserChat(userChat)"
+    ></app-usermsg-card>
+  </ng-container>
+</div>

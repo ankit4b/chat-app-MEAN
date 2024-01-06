@@ -1,0 +1,29 @@
+<div
+  class="card-container"
+  [ngClass]="{ 'selected-card': isSelected }"
+  (click)="getChats()"
+>
+  <div class="image-container">
+    <ng-container *ngIf="isGroupChat; else elseBlockImg">
+      <img src="https://cdn-icons-png.flaticon.com/512/166/166258.png" />
+    </ng-container>
+    <ng-template #elseBlockImg>
+      <img [src]="getOtherUser(userChat.users).pic" />
+    </ng-template>
+  </div>
+  <div class="body-container">
+    <div class="name">
+      <h4>
+        <ng-container *ngIf="isGroupChat; else elseBlock">
+          {{ userChat.chatName }}
+        </ng-container>
+        <ng-template #elseBlock>
+          {{ getOtherUser(userChat.users).name }}
+        </ng-template>
+      </h4>
+    </div>
+    <div class="message">
+      <p>{{ userChat?.content }}</p>
+    </div>
+  </div>
+</div>

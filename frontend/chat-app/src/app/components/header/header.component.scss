@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@700&display=swap");
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #333;
+
+  .left-section {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+
+    #logo-img {
+      height: 2rem;
+    }
+
+    #logo-title {
+      font-family: "Baloo Bhaijaan 2", sans-serif;
+      font-size: 1.4rem;
+      color: #33749e;
+    }
+  }
+
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .image-container {
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    }
+
+    #notification-icon {
+      cursor: pointer;
+      font-size: 24px;
+      position: relative;
+    }
+
+    .notification-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      padding: 4px;
+      font-size: 12px;
+    }
+
+    #notification-popup {
+      position: fixed;
+      top: 50px;
+      right: 10px;
+      width: 200px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      // border: 1px solid #ccc;
+      max-height: 200px;
+      overflow-y: auto;
+      background: #fff;
+      z-index: 1;
+    }
+
+    .notification-item {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .notification-item:hover {
+      background-color: #f5f5f5;
+    }
+  }
+}
